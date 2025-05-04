@@ -1,0 +1,201 @@
+/* CSS Variables for consistent theming */
+:root {
+    --dark-primary: #1a1a2e;       /* Main dark background */
+    --dark-secondary: #16213e;     /* Secondary dark color */
+    --dark-accent: #0f3460;        /* Accent dark color */
+    --highlight: #e94560;          /* Highlight/primary accent color */
+    --text-primary: #f1f1f1;       /* Primary text color */
+    --text-secondary: #b8b8b8;     /* Secondary text color */
+    --success: #4e9f3d;            /* Success state color */
+    --error: #d32f2f;              /* Error state color */
+}
+
+/* Base reset and typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Main page styling */
+body {
+    background-color: var(--dark-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* Layout container */
+.container {
+    display: flex;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Image gallery styling */
+.image-container {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Image hover effect */
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.image-container:hover img {
+    transform: scale(1.02);
+}
+
+/* Gallery navigation buttons */
+.gallery-controls {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.gallery-controls button {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Form container styling */
+.form-container {
+    flex: 1;
+    padding: 2rem;
+    background-color: var(--dark-secondary);
+    overflow-y: auto;
+}
+
+/* Main heading with icon */
+h1 {
+    margin-bottom: 2rem;
+    color: var(--highlight);
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+/* Tab navigation styling */
+.tabs {
+    display: flex;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--dark-accent);
+}
+
+/* Tab button styling */
+.tab-btn {
+    padding: 0.8rem 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    position: relative;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Active tab indicator */
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--highlight);
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Input field styling */
+input, select {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--dark-accent);
+    border: 1px solid #2c3a58;
+    border-radius: 4px;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+/* Focus state for inputs */
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--highlight);
+    box-shadow: 0 0 0 2px rgba(233, 69, 96, 0.2);
+}
+
+/* Password validation rules display */
+.password-rules {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+/* Custom checkbox styling */
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Accordion styling */
+.accordion-item {
+    border: 1px solid var(--dark-accent);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Form action buttons */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+/* Button styling */
+button {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--highlight);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .image-container {
+        height: 300px;
+    }
+    
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+}
