@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Academia Class Registration</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Using Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Main container for the entire layout -->
+    <div class="container">
+        <!-- Image gallery section -->
+        <div class="image-container">
+            <img src="https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Academic library" id="gallery-image">
+            <!-- Gallery navigation controls -->
+            <div class="gallery-controls">
+                <button id="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button id="next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+        
+        <!-- Form container section -->
+        <div class="form-container">
+            <h1><i class="fas fa-book-open"></i> Academia Registration</h1>
+            
+            <!-- Tab navigation -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="personal">Personal</button>
+                <button class="tab-btn" data-tab="academic">Academic</button>
+                <button class="tab-btn" data-tab="payment">Payment</button>
+            </div>
+            
+            <!-- Main registration form -->
+            <form id="registration-form">
+                <!-- Personal Info Tab -->
+                <div class="tab-content active" id="personal-tab">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                        <span class="error-message"></span>
+                    </div>
+                    
+                    <!-- Email input with validation -->
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error-message"></span>
+                    </div>
+                    
+                    <!-- Password input with complexity rules -->
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                        <div class="password-rules">
+                            <span class="rule" data-rule="length">8+ characters</span>
+                            <span class="rule" data-rule="uppercase">Uppercase letter</span>
+                            <span class="rule" data-rule="number">Number</span>
+                            <span class="rule" data-rule="special">Special character</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Password confirmation -->
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                        <span class="error-message"></span>
+                    </div>
+                </div>
+                
+                <!-- Academic Info Tab -->
+                <div class="tab-content" id="academic-tab">
+                    <!-- Country dropdown with Kenya included -->
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <select id="country" name="country" required>
+                            <option value="">Select your country</option>
+                            <option value="Kenya">Kenya</option>
+                            <option value="USA">United States</option>
+                            <option value="UK">United Kingdom</option>
+                            <!-- Additional countries... -->
+                        </select>
+                    </div>
+                    
+                    <!-- Course selection checkboxes -->
+                    <div class="form-group">
+                        <label>Courses (Select at least one)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-container">Literature
+                                <input type="checkbox" name="course" value="Literature">
+                                <span class="checkmark"></span>
+                            </label>
+                            <!-- Additional courses... -->
+                        </div>
+                        <span class="error-message" id="course-error"></span>
+                    </div>
+                    
+                    <!-- Accordion for course descriptions -->
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <button class="accordion-btn">Course Descriptions <i class="fas fa-chevron-down"></i></button>
+                            <div class="accordion-content">
+                                <p><strong>Literature:</strong> Study of classical and contemporary literary works.</p>
+                                <!-- Additional course descriptions... -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Payment Info Tab -->
+                <div class="tab-content" id="payment-tab">
+                    <!-- Payment method selection -->
+                    <div class="form-group">
+                        <label for="payment-method">Payment Method</label>
+                        <select id="payment-method" name="payment-method" required>
+                            <option value="">Select payment method</option>
+                            <option value="credit">Credit Card</option>
+                            <option value="mpesa">M-Pesa (Kenya)</option>
+                            <!-- Additional payment methods... -->
+                        </select>
+                    </div>
+                    
+                    <!-- Conditional fields shown based on payment method -->
+                    <div id="credit-card-fields" class="hidden">
+                        <!-- Credit card fields... -->
+                    </div>
+                    
+                    <div id="mpesa-fields" class="hidden">
+                        <!-- M-Pesa specific fields -->
+                        <div class="form-group">
+                            <label for="phone">M-Pesa Phone Number</label>
+                            <input type="text" id="phone" name="phone" placeholder="e.g., 254712345678">
+                        </div>
+                        <p>You will receive a payment request on your phone</p>
+                    </div>
+                </div>
+                
+                <!-- Form navigation buttons -->
+                <div class="form-actions">
+                    <button type="button" id="prev-tab" class="hidden">Previous</button>
+                    <button type="button" id="next-tab">Next</button>
+                    <button type="submit" id="submit-btn" class="hidden">Submit Registration</button>
+                </div>
+            </form>
+            
+            <!-- Secret message element (shown via special interactions) -->
+            <div id="secret-message" class="hidden">
+                <p>🎓 Welcome, scholar of the dark arts! You've found our secret message.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
